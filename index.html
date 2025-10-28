@@ -1,39 +1,47 @@
-<!DOCTYPE html> 
-<html lang="en" data-theme="light"> 
-<head> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width-device-width, initial-scale=1.0">
-    <title>Magic LEE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desk Portfolio</title>
     <link rel="stylesheet" href="./css/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Signika:wght@400&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
-    <link rel="icon" type="image" href="./images/img/Leela1.png" sizes="196x196">
-</head> 
-<body> 
-    <!-- ...............Navi............... -->
-    <nav class="navi">
-    </nav>
-    <!-- ...............About............... -->
-    <div id="about" class="about">
+</head>
+<body>
+    <div id="portfolio-container" class="portfolio-container light-mode">
+        <!-- Mode Switch Button -->
+        <button class="mode-switch" id="mode-switch">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='30' r='8' fill='%23FFD700'/%3E%3Cpath d='M30,40 Q30,35 35,35 L65,35 Q70,35 70,40 L70,80 Q70,85 65,85 L35,85 Q30,85 30,80 Z' fill='%23333'/%3E%3C/svg%3E" alt="Lamp">
+        </button>
+
+        <!-- Navigation Bar -->
+        <nav class="top-bar">
+            <button class="nav-button" data-section="profile">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='35' fill='none' stroke='%23333' stroke-width='3'/%3E%3Ccircle cx='50' cy='50' r='15' fill='none' stroke='%23333' stroke-width='3'/%3E%3Cline x1='70' y1='70' x2='85' y2='85' stroke='%23333' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E" alt="Magnifier">
+                <span class="tooltip-label">Profile</span>
+            </button>
+
+            <button class="nav-button" data-section="projects">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='20' y='15' width='60' height='70' rx='3' fill='none' stroke='%23333' stroke-width='3'/%3E%3Cline x1='30' y1='30' x2='70' y2='30' stroke='%23333' stroke-width='2'/%3E%3Cline x1='30' y1='45' x2='70' y2='45' stroke='%23333' stroke-width='2'/%3E%3Cline x1='30' y1='60' x2='70' y2='60' stroke='%23333' stroke-width='2'/%3E%3C/svg%3E" alt="Notebook">
+                <span class="tooltip-label">Projects</span>
+            </button>
+
+            <button class="nav-button" data-section="location">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='35' fill='none' stroke='%23333' stroke-width='3'/%3E%3Cellipse cx='50' cy='50' rx='35' ry='20' fill='none' stroke='%23333' stroke-width='2'/%3E%3Cline x1='50' y1='15' x2='50' y2='85' stroke='%23333' stroke-width='2'/%3E%3C/svg%3E" alt="Globe">
+                <span class="tooltip-label">Location</span>
+            </button>
+
+            <button class="nav-button" data-section="contact">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M30,70 L35,40 Q40,30 45,35 L55,45' fill='none' stroke='%23333' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='30' cy='75' r='5' fill='%23333'/%3E%3C/svg%3E" alt="Pen">
+                <span class="tooltip-label">Contact</span>
+            </button>
+        </nav>
+
+        <!-- Content Area -->
+        <div class="content-area" id="content-area"></div>
+
+        <!-- Close Button -->
+        <button class="close-button" id="close-button">×</button>
     </div>
-
-    <section id="intro" class="intro">
-    </section>
-
-    <!-- ...............Projects............... -->
-    <main id="project" class="project">
-    </main>
-
-    <!-- ...............Contact............... -->
-    <div id="contact" class="contact">
-    </div>
-
-    <!-- ......footer menu......-->
-    <section class="foot">
-        Welcome to make herStory.
-        <p>&copy; herStory Website</p> 
-    </section>
 
     <script src="./js/index.js"></script>
 </body>
