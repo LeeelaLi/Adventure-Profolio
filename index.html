@@ -22,6 +22,7 @@
   --text-dark: #e8dcc4;
   --accent: #D4433D;
   --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -760,20 +761,23 @@ html {
 }
 
 .project-card {
-  padding: 20px;
-  padding-bottom: 50px;
-  border-radius: 4px;
-  background: white;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-  /* border: 12px solid var(--bg-light); */
+  padding: 25px;
+  padding-bottom: 60px; 
+  border-radius: 6px; 
+  background: white; 
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: var(--transition-fast);
   position: relative;
-  color: var(--color-light-text);
-  transform: rotate(calc(var(--rotation, 0) * 1deg));
+  color: var(--text-light);
+  transform: none; 
+  text-align: center
 }
 
+.project-card:nth-child(1) { --rotation: -1; }
 .project-card:nth-child(2) { --rotation: 1; }
-.project-card:nth-child(4) { --rotation: -1; }
+.project-card:nth-child(3) { --rotation: -1; }
+.project-card:nth-child(4) { --rotation: 2; }
+.project-card:nth-child(5) { --rotation: -1; }
 .project-card:nth-child(6) { --rotation: 2; }
 
 .dark-mode .project-card {
@@ -791,10 +795,10 @@ html {
 .project-card::after {
   content: attr(data-caption);
   position: absolute;
-  bottom: 12px;
-  left: 12px;
-  right: 12px;
-  text-align: center;
+  bottom: 20px;
+  left: auto;
+  right: 30px;
+  text-align: right;
   font-family: var(--font-mono);
   font-size: 0.9rem;
   color: var(--color-accent-primary);
@@ -1100,14 +1104,14 @@ html {
         </div>
       <div class="projects-grid">
             <a href="*" class="project-card" data-caption="Jan 2026">
-              <div class="project-icon" style="font-size: 30px; color: gray; margin-bottom: 120px;margin-top: 20px;">Coming soon...</div>
+              <div class="project-icon" style="font-size: 30px; color: gray; margin-bottom: 80px;margin-top: 80px;">Coming soon...</div>
               <h3>Social Media App</h3>
               <p>A platform designed to help you discover authentic lifestyle content, covering everything from pets and travel to food.</p>
             </a>
             <a href="https://github.com/LeeelaLi/bookworm" class="project-card" data-caption="Dev 2025">
               <div class="project-icon"><img src="./images/img/bookstore.jpg" style="width: 330px;"/></div>
               <h3>Bookstore App</h3>
-              <p>A full-stack MERN + React Native Bookstore App featuring authentication, media uploads, infinite loading, and multi-platform support, built with Node.js, Express, MongoDB, and React Native.</p>
+              <p>A full-stack MERN bookstore app with features such as authentication, media upload, and infinite loading, built using Node.js, Express, MongoDB, and React Native.</p>
             </a>
             <a href="https://leeelali.github.io/The-Color-Tap-Digital-Color-Mixer/" class="project-card" data-caption="Nov 2025">
               <div class="project-icon"><img src="./images/img/the_color_tap.jpg" style="width: 330px;"/></div>
