@@ -357,7 +357,6 @@ a:hover {
   aspect-ratio: 1;
   border-radius: 50%;
   background: white;
-  /* background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-dark) 100%); */
   background-image: url('./images/img/avatar.jpeg');
   background-position: center;
   background-size: contain;
@@ -445,6 +444,17 @@ a:hover {
   transition: var(--transition);
   min-height: 320px;
   cursor: pointer;
+  border: 12px solid transparent; 
+  border-image: repeating-linear-gradient(
+        45deg,
+        /* Red at 0.4 opacity */
+        rgba(212, 67, 61, 0.4),
+        rgba(212, 67, 61, 0.4) 16px,
+        
+        /* Blue at 0.4 opacity */
+        rgba(74, 144, 226, 0.4) 16px,
+        rgba(74, 144, 226, 0.4) 32px
+    ) 10;
 }
 
 .dark-mode .postcard {
@@ -476,17 +486,34 @@ a:hover {
 }
 
 .postcard-stamp {
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   background: white;
-  border: 2px solid rgba(255,255,255,0.5);
+  border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.8rem;
   transform: rotate(8deg);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 15px;
+  right: 15px; 
+  z-index: 10;
+
+  -webkit-clip-path: polygon(
+    0% 0%, 5% 5%, 10% 0%, 15% 5%, 20% 0%, 25% 5%, 30% 0%, 35% 5%, 40% 0%, 45% 5%, 50% 0%, 55% 5%, 60% 0%, 65% 5%, 70% 0%, 75% 5%, 80% 0%, 85% 5%, 90% 0%, 95% 5%, 100% 0%,
+    95% 5%, 100% 10%, 95% 15%, 100% 20%, 95% 25%, 100% 30%, 95% 35%, 100% 40%, 95% 45%, 100% 50%, 95% 55%, 100% 60%, 95% 65%, 100% 70%, 95% 75%, 100% 80%, 95% 85%, 100% 90%, 95% 95%, 100% 100%,
+    95% 100%, 90% 95%, 85% 100%, 80% 95%, 75% 100%, 70% 95%, 65% 100%, 60% 95%, 55% 100%, 50% 95%, 45% 100%, 40% 95%, 35% 100%, 30% 95%, 25% 100%, 20% 95%, 15% 100%, 10% 95%, 5% 100%, 0% 95%, 0% 100%,
+    5% 95%, 0% 90%, 5% 85%, 0% 80%, 5% 75%, 0% 70%, 5% 65%, 0% 60%, 5% 55%, 0% 50%, 5% 45%, 0% 40%, 5% 35%, 0% 30%, 5% 25%, 0% 20%, 5% 15%, 0% 10%, 5% 5%
+  );
+  clip-path: polygon(
+    0% 0%, 5% 5%, 10% 0%, 15% 5%, 20% 0%, 25% 5%, 30% 0%, 35% 5%, 40% 0%, 45% 5%, 50% 0%, 55% 5%, 60% 0%, 65% 5%, 70% 0%, 75% 5%, 80% 0%, 85% 5%, 90% 0%, 95% 5%, 100% 0%,
+    95% 5%, 100% 10%, 95% 15%, 100% 20%, 95% 25%, 100% 30%, 95% 35%, 100% 40%, 95% 45%, 100% 50%, 95% 55%, 100% 60%, 95% 65%, 100% 70%, 95% 75%, 100% 80%, 95% 85%, 100% 90%, 95% 95%, 100% 100%,
+    95% 100%, 90% 95%, 85% 100%, 80% 95%, 75% 100%, 70% 95%, 65% 100%, 60% 95%, 55% 100%, 50% 95%, 45% 100%, 40% 95%, 35% 100%, 30% 95%, 25% 100%, 20% 95%, 15% 100%, 10% 95%, 5% 100%, 0% 95%, 0% 100%,
+    5% 95%, 0% 90%, 5% 85%, 0% 80%, 5% 75%, 0% 70%, 5% 65%, 0% 60%, 5% 55%, 0% 50%, 5% 45%, 0% 40%, 5% 35%, 0% 30%, 5% 25%, 0% 20%, 5% 15%, 0% 10%, 5% 5%
+  );
 }
 
 .postcard-body {
@@ -496,6 +523,8 @@ a:hover {
   min-height: 240px;
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 12;
 }
 
 .postcard-date {
@@ -503,6 +532,7 @@ a:hover {
   opacity: 0.7;
   margin-bottom: 12px;
   font-style: italic;
+  text-align: center;
 }
 
 .postcard-title {
@@ -510,7 +540,9 @@ a:hover {
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 12px;
+  align-items: center;
   color: #2c3e50;
+  text-align: center;
 }
 
 .postcard-content {
@@ -846,6 +878,7 @@ html {
 .projects-content .project-card:nth-child(5) { animation-delay: 0.5s; }
 .projects-content .project-card:nth-child(6) { animation-delay: 0.6s; }
 
+
 </style>
 </head>
 <body>
@@ -950,11 +983,11 @@ html {
         </div>
         <div class="postcards-grid">
           <div class="postcard fade-in">
-            <div class="postcard-airmail"></div>
-            <div class="postcard-header">
+            <!-- <div class="postcard-airmail"></div> -->
+            <!-- <div class="postcard-header">
               <div class="postcard-location">🌐 Remote Work</div>
-              <div class="postcard-stamp">💻</div>
-            </div>
+            </div> -->
+            <div class="postcard-stamp">💻</div>
             <div class="postcard-body">
               <div class="postcard-title">Web Development Volunteer</div>
               <div class="postcard-date">Nov 2024 – Present</div>
@@ -967,18 +1000,20 @@ html {
                   <li>Meeting deadlines while maintaining quality.</li>
                 </ul>
               </div>
-              <div class="postcard-footer">
+              <!-- <div class="postcard-footer">
                 <div class="postcard-signature">- The Problem Solver</div>
-              </div>
+              </div> -->
             </div>
           </div>
 
           <div class="postcard fade-in">
-            <div class="postcard-airmail"></div>
+            <!-- <div class="postcard-airmail"></div>
             <div class="postcard-header">
               <div class="postcard-location">🎬 Creative Studio</div>
               <div class="postcard-stamp">🎨</div>
-            </div>
+            </div> -->
+              <div class="postcard-stamp">🎨</div>
+
             <div class="postcard-body">
               <div class="postcard-title">2D Animation Supervisor</div>
               <div class="postcard-date">Jun 2022 - Apr 2023</div>
@@ -991,18 +1026,20 @@ html {
                   <li>Optimised workflows systematically.</li>
                 </ul>
               </div>
-              <div class="postcard-footer">
+              <!-- <div class="postcard-footer">
                 <div class="postcard-signature">- The Coordinator</div>
-              </div>
+              </div> -->
             </div>
           </div>
 
           <div class="postcard fade-in">
-            <div class="postcard-airmail"></div>
-            <div class="postcard-header">
+            <!-- <div class="postcard-airmail"></div> -->
+            <!-- <div class="postcard-header">
               <div class="postcard-location">🔬 Research Lab</div>
               <div class="postcard-stamp">🛡️</div>
-            </div>
+            </div> -->
+              <div class="postcard-stamp">🛡️</div>
+
             <div class="postcard-body">
               <div class="postcard-title">Censorship Circumvention Framework</div>
               <div class="postcard-date">Master's Research</div>
@@ -1015,18 +1052,20 @@ html {
                   <li>System resilience benchmarking.</li>
                 </ul>
               </div>
-              <div class="postcard-footer">
+              <!-- <div class="postcard-footer">
                 <div class="postcard-signature">- The Researcher</div>
-              </div>
+              </div> -->
             </div>
           </div>
 
           <div class="postcard fade-in">
-            <div class="postcard-airmail"></div>
-            <div class="postcard-header">
+            <!-- <div class="postcard-airmail"></div> -->
+            <!-- <div class="postcard-header">
               <div class="postcard-location">🖥️ Linux Territory</div>
               <div class="postcard-stamp">🐧</div>
-            </div>
+            </div> -->
+              <div class="postcard-stamp">🐧</div>
+
             <div class="postcard-body">
               <div class="postcard-title">Linux System Administration</div>
               <div class="postcard-date">Practical Labs</div>
@@ -1039,18 +1078,20 @@ html {
                   <li>System monitoring & documentation.</li>
                 </ul>
               </div>
-              <div class="postcard-footer">
+              <!-- <div class="postcard-footer">
                 <div class="postcard-signature">- The Sysadmin</div>
-              </div>
+              </div> -->
             </div>
           </div>
 
           <div class="postcard fade-in">
-            <div class="postcard-airmail"></div>
-            <div class="postcard-header">
+            <!-- <div class="postcard-airmail"></div> -->
+            <!-- <div class="postcard-header">
               <div class="postcard-location">🌐 Network Lab</div>
               <div class="postcard-stamp">🔌</div>
-            </div>
+            </div> -->
+              <div class="postcard-stamp">🔌</div>
+
             <div class="postcard-body">
               <div class="postcard-title">Enterprise Networking</div>
               <div class="postcard-date">Practical Labs</div>
@@ -1063,18 +1104,20 @@ html {
                   <li>Network troubleshooting & connectivity.</li>
                 </ul>
               </div>
-              <div class="postcard-footer">
+              <!-- <div class="postcard-footer">
                 <div class="postcard-signature">- The Network Explorer</div>
-              </div>
+              </div> -->
             </div>
           </div>
 
           <div class="postcard fade-in">
-            <div class="postcard-airmail"></div>
-            <div class="postcard-header">
+            <!-- <div class="postcard-airmail"></div> -->
+            <!-- <div class="postcard-header">
               <div class="postcard-location">🔐 Security Zone</div>
               <div class="postcard-stamp">🛡️</div>
-            </div>
+            </div> -->
+              <div class="postcard-stamp">🛡️</div>
+
             <div class="postcard-body">
               <div class="postcard-title">Vulnerability Assessment</div>
               <div class="postcard-date">Practical Labs</div>
@@ -1087,9 +1130,9 @@ html {
                   <li>Risk mitigation strategies.</li>
                 </ul>
               </div>
-              <div class="postcard-footer">
+              <!-- <div class="postcard-footer">
                 <div class="postcard-signature">- The Security Scout</div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
